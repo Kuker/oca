@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 
 function createWindow() {
@@ -7,6 +7,8 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true,
+      webviewTag: true
     },
     width: 800,
   });
@@ -23,6 +25,10 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on("ready", () => {
   createWindow();
+
+  ipcMain.on('notification-shim', (e, msg) => {
+		console.log(`Title: ${msg.title}, Body: ${msg.options.body}`);
+	});
 
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
