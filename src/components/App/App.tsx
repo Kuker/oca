@@ -1,5 +1,6 @@
 import React from 'react';
-import Homepage from '../Homepage/Homepage';
+//import Homepage from '../Homepage/Homepage';
+import { Homepage } from '../../features/Homepage/Homepage';
 import { Wrapper } from './App.styled';
 function App() {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 
 interface PageViewProps {
-    href: string;
+  href: string;
 }
 
-export const PageView = ({href}: PageViewProps) => {
-    return <webview src={href}></webview>
-}
+export const PageView = ({ href, ...other }: PageViewProps | any) => {
+  return <webview src={href} {...other}></webview>;
+};
