@@ -1,12 +1,11 @@
-
 import React from 'react';
 import Homepage from '../Homepage/Homepage';
-import './App.css';
+import { Wrapper } from './App.styled';
 function App() {
   return (
-    <div className="App">
+    <Wrapper>
       <Homepage></Homepage>
-    </div>
+    </Wrapper>
   );
 }
 
